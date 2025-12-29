@@ -12,113 +12,22 @@
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="bower_components/web3/dist/web3.min.js"></script>
-  
-  <!-- ==================== 自定义样式 - 蓝色主题 ==================== -->
-  <style>
-    /* 主背景改为蓝色渐变 */
-    body {
-      background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%) !important;
-      /* background: #007bff !important; */  /* 纯蓝色备用方案 */
-      color: #ffffff !important;
-      min-height: 100vh;
-    }
-    
-    /* 内容区域白色背景，提高可读性 */
-    .container, .ng-view {
-      background-color: rgba(255, 255, 255, 0.95) !important;
-      color: #333333 !important;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 80px;  /* 给导航栏留空间 */
-      margin-bottom: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* 导航栏深蓝色 */
-    .navbar-inverse {
-      background-color: #0056b3 !important;
-      border-color: #004085 !important;
-    }
-    
-    /* 品牌文字样式 */
-    .navbar-brand {
-      color: #ffffff !important;
-      font-weight: bold;
-    }
-    
-    /* 搜索框样式调整 */
-    .form-control {
-      border: 2px solid #007bff;
-      border-radius: 5px;
-    }
-    
-    /* 搜索按钮样式 */
-    .btn-success {
-      background-color: #28a745 !important;
-      border-color: #28a745 !important;
-    }
-    
-    /* 模态框样式 */
-    .modal-content {
-      background-color: #f8f9fa !important;
-      color: #333333 !important;
-    }
-    
-    /* 页脚样式 */
-    .footer {
-      background-color: rgba(0, 86, 179, 0.9) !important;  /* 半透明深蓝 */
-      color: white !important;
-      padding: 15px 0;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-    
-    /* 链接颜色 */
-    a {
-      color: #17a2b8 !important;  /* 青色链接，在蓝色背景上更醒目 */
-    }
-    
-    a:hover {
-      color: #138496 !important;
-      text-decoration: underline;
-    }
-    
-    /* 表格样式 */
-    table {
-      background-color: white !important;
-      color: #333333 !important;
-    }
-    
-    /* 响应式调整 */
-    @media (max-width: 768px) {
-      .container, .ng-view {
-        margin-top: 60px;
-        padding: 15px;
-      }
-    }
-  </style>
-  <!-- ==================== 自定义样式结束 ==================== -->
+
 </head>
 <body>
   
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <!-- 导航栏品牌标志 -->
-            <span class="icon-bar"></span>
-            <a href="/#/" class="navbar-brand">
-              🔍 Ether Block Explorer - 蓝色主题版
-            </a>
+            <span class="icon-bar"></span><a href="/#/" class="navbar-brand">Ether Block Explorer</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-            <!-- 搜索表单 -->
             <form  name="search_form" ng-controller="mainCtrl" ng-submit="processRequest()"  class="navbar-form navbar-right">
             <div class="form-group">
-            <input type="text" placeholder="搜索: 交易哈希、地址或区块号" name="requestType" required  ng-model="ethRequest"  class="form-control"><br>
+            <input type="text" placeholder="Tx Hash, Address or Block number" name="requestType" required  ng-model="ethRequest"  class="form-control"><br>
             </div>
-            <button type="submit" class="btn btn-success">🔍 搜索</button></form>
+            <button type="submit" class="btn btn-success">Search</button></form>
             </ul>
 	    </div>
     </div>
@@ -126,17 +35,7 @@
 
 
 
-  <!-- 主要视图区域 -->
-  <div class="container">
-    <div ng-view></div>
-    
-    <!-- 自定义欢迎信息 -->
-    <div style="margin-top: 20px; padding: 15px; background: #e6f2ff; border-radius: 5px; border-left: 4px solid #007bff;">
-      <h4>🎨 主题说明</h4>
-      <p>这是一个自定义的蓝色主题以太坊区块链浏览器。页面背景采用了蓝色渐变设计，以提高视觉吸引力。</p>
-      <p><small>当前连接节点: <span id="currentNode">localhost:8545</span></small></p>
-    </div>
-  </div>
+  <div ng-view></div>
 
 <!--Libs-->
 
@@ -161,12 +60,10 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <center><div class="modal-header">
-                    <h4 class="modal-title">⚠️ 连接Geth节点</h4>
+                    <h4 class="modal-title">Allow Access to Geth and Refresh the Page</h4>
                 </div>
                 <div class="modal-body">
-                    <p>需要允许浏览器访问Geth节点</p>
                     <code><p id="modaltext"></p></code>
-                    <p><small>复制上面的命令到终端启动Geth</small></p>
                 </div></center>
             </div>
         </div>
@@ -175,36 +72,14 @@
 
 <div class="footer" style="bottom: 0px;text-align: center;background-color: white; width:100%;">
     <footer>
-        <hr style="border-color: #ffffff;">
+        <hr>
         <p>
-            <!-- 修改版权信息和链接 -->
-            🚀 © Etherparty.io 2017 | 修改版: 蓝色主题 | 
-            <a href="http://github.com/etherparty/explorer" style="color: #a3d5ff !important;">在GitHub上Fork我</a> |
-            <a href="#" onclick="location.reload()" style="color: #a3d5ff !important;">🔄 刷新页面</a>
-        </p>
-        <!-- 添加自定义信息 -->
-        <p style="font-size: 12px; opacity: 0.8;">
-            运行于本地开发环境 | 节点版本: Geth开发者模式 | 主题: 蓝色渐变
+            © Etherparty.io 2017 | <a href="http://github.com/etherparty/explorer">Fork me on GitHub</a>
         </p>
     </footer>
 </div>
 <script>
-// 修改模态框显示的Geth命令，添加开发模式参数
-$("#modaltext").text( 'geth --dev --http --http.corsdomain "'+ window.location.protocol + '//' + window.location.host + '"' );
-
-// 显示当前节点信息
-try {
-    if (typeof web3 !== 'undefined') {
-        document.getElementById('currentNode').textContent = web3.currentProvider.host || '已连接Web3';
-    }
-} catch(e) {
-    // 忽略错误
-}
-
-// 添加页面加载提示
-$(document).ready(function() {
-    console.log('🌈 蓝色主题以太坊浏览器已加载');
-});
+$("#modaltext").text( 'geth --rpc --rpccorsdomain "'+ window.location.protocol + '//' + window.location.host + '"' );
 </script>
 </body>
-</html>
+</html>略
