@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="bower_components/web3/dist/web3.min.js"></script>
   
-
+  <!-- ==================== 自定义样式 - 蓝色主题 ==================== -->
   <style>
     /* 主背景改为蓝色渐变 */
     body {
@@ -98,7 +98,7 @@
       }
     }
   </style>
-
+  <!-- ==================== 自定义样式结束 ==================== -->
 </head>
 <body>
   
@@ -207,4 +207,6 @@ $(document).ready(function() {
 });
 </script>
 </body>
+<<<<<<< HEAD
 </html>
+======
